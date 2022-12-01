@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from services.censoService import censoService
 
 app = Flask(__name__)
 
@@ -6,6 +7,12 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return jsonify({'message': 'it is a test'})
+
+@app.route('/generate_report', methods=['GET'])
+def generate_report():
+    censoService.union_df()
+
+    return jsonify({'message': 'running'})
 
 
 if __name__ == "__main__":

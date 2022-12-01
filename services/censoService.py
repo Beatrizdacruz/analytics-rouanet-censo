@@ -1,66 +1,41 @@
 import numpy as np
 import pandas as pd
+from services.utils.util import Util
 
 
 class censoService():
-    def __init__(self) -> None:
-        pass
+    def __init__(self, df) -> None:
+        self.df = df
 
     def union_df():
-        df_censo_estado = pd.read_csv('search_source\censo_estado.csv')
-        df_rouanet = pd.read_csv('search_source/rouanet.csv')
+        try:
+            df_censo_estado = pd.read_csv('search_source\censo_estado.csv')
+            df_rouanet = pd.read_csv('search_source/rouanet.csv')
 
-        print('df_censo_estado --->')
-        print(df_censo_estado)
+            print('df_censo_estado --->')
+            print(df_censo_estado)
 
-        print('df_rouanet --->')
-        print(df_rouanet)
+            print('df_rouanet --->')
+            print(df_rouanet)
 
-        df_censo_estado['estado_ibge'] = df_censo_estado['codigo']
+            df_censo_estado['estado_ibge'] = df_censo_estado['codigo']
 
-        df = pd.merge(df_censo_estado, df_rouanet, how='inner', on='estado_ibge')
-        
-        df = dict_uf(df)
-        
+            df = pd.merge(df_censo_estado, df_rouanet, how='inner', on='estado_ibge')
+            
+            df = Util.surrogate(df)
 
-        print(df)
-        print(df.dtypes)
+            df = Util.drop_values(df)
 
+            df = Util.dict_uf(df)
+            
+            df.to_csv('relatorio_censo_rouanet.csv', index=False)
+            
 
-def dict_uf(df):
-    
-    dict_states = {'Acre': 'AC',
-    'Alagoas' : 'AL',
-    'Amapá' : 'AP',
-    'Amazonas' : 'AM',
-    'Bahia' : 'BA',
-    'Ceará' : 'CE',
-    'Distrito Federal' : 'DF',
-    'Espírito Santo' : 'ES',
-    'Goiás' : 'GO',
-    'Maranhão' : 'MA',
-    'Mato Grosso' : 'MT',
-    'Mato Grosso do Sul' : 'MS',
-    'Minas Gerais' : 'MG',
-    'Pará' : 'PA',
-    'Paraíba' : 'PB',
-    'Paraná' : 'PR',
-    'Pernambuco' : 'PE',
-    'Piauí' : 'PI',
-    'Rio de Janeiro' : 'RJ',
-    'Rio Grande do Norte' : 'RN',
-    'Rio Grande do Sul' : 'RS',
-    'Rondônia' : 'RO',
-    'Roraima' : 'RR',
-    'Santa Catarina' : 'SC',
-    'São Paulo' : 'SP',
-    'Sergipe' : 'SE',
-    'Tocantins' : 'TO'
-    }
+            print(df)
+            print(df.dtypes)
 
-
-    for states in df['estado']:
-        df = df.replace(states, dict_states[states])
-    
-    return df
+            return df
+        except Exception as e:
+            return e
+            
 
