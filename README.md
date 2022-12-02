@@ -16,7 +16,7 @@ O projeto foi desenvolvido em python e a biblioteca Pandas, muito usada para a m
  
  1 - Primeiro, instale os módulos necessários (Para evitar conflitos entre módulos, é preferível que tais comandos sejam executando em um ambiente virtual, como venv ou conda):
 
-        --pip install -r requirements.txt--
+        pip install -r requirements.txt
 
  2 - renomeie o arquivo ".env copy" para .env.
  

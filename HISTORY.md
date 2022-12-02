@@ -21,20 +21,20 @@
 
 ### Estrutura da aplicação
 
-    Os diretorios foram dividos da seguinte forma:
-    - pasta > datasets = os arquivos .csv usados como input;
-    - pasta > services > utils > util.py = Classe Util e funções/métodos:
-                                            - drop_values(df) = recebe o dataframe e remove linhas dos campos especificados caso sejam iguais a 0.
-                                            - surrogate(df) = cria a coluna "sk_order" como a surrogate key do dataframe.
-                                            - drop_duplicates_report(df) = remove linhas duplicadas/iguais.
-                                            - dict_uf(df) = dicionário para transformar as linhas do campo "estado" para suas respectivas siglas.
-    - pasta > services > censoService.py = recebe os métodos do arquivo util para tratamento dos dataframes criados ao coletar os arquivos csv e retorna um único arquivo .csv. Por ser uma chave "viva", a surrogate key foi adicionada nos últimos passos do pipeline.
-    - Dockerfile = criado para o setup do ambiente em outras máquinas.
-    - main.py = recebe o serviço criado e cria um endpoint para dar vazão ao mesmo. 
-    - requirements.txt = lista de bibliotecas que precisam ser instaladas para funcionamento da stack.
-    - .env = armazena algumas variáveis de acesso. Como é recomendável estar em gitignore, foi feita uma cópia renomeada para ser commitada.
-    
-    Foi incluido um .gitignore para ignorar os arquivos usados nos testes.
+Os diretorios foram dividos da seguinte forma:
+- pasta > datasets = os arquivos .csv usados como input;
+- pasta > services > utils > util.py = Classe Util e funções/métodos:
+                                        - drop_values(df) = recebe o dataframe e remove linhas dos campos especificados caso sejam iguais a 0.
+                                        - surrogate(df) = cria a coluna "sk_order" como a surrogate key do dataframe.
+                                        - drop_duplicates_report(df) = remove linhas duplicadas/iguais.
+                                        - dict_uf(df) = dicionário para transformar as linhas do campo "estado" para suas respectivas siglas.
+- pasta > services > censoService.py = recebe os métodos do arquivo util para tratamento dos dataframes criados ao coletar os arquivos csv e retorna um único arquivo .csv. Por ser uma chave "viva", a surrogate key foi adicionada nos últimos passos do pipeline.
+- Dockerfile = criado para o setup do ambiente em outras máquinas.
+- main.py = recebe o serviço criado e cria um endpoint para dar vazão ao mesmo. 
+- requirements.txt = lista de bibliotecas que precisam ser instaladas para funcionamento da stack.
+- .env = armazena algumas variáveis de acesso. Como é recomendável estar em gitignore, foi feita uma cópia renomeada para ser commitada.
+
+Foi incluido um .gitignore para ignorar os arquivos usados nos testes.
 
 ### Testes realizados
-    Durante todo o desenvolvimento, o passo serviço foi testado dentro de arquivos.py para aferir o retorno dos mesmos. Para garantir que funcionaria em outra máquina, o dockerfile da stack logo foi criado para executar os testes. 
+Durante todo o desenvolvimento, o passo serviço foi testado dentro de arquivos.py para aferir o retorno dos mesmos. Para garantir que funcionaria em outra máquina, o dockerfile da stack logo foi criado para executar os testes. 
