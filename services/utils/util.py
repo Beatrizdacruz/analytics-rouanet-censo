@@ -14,6 +14,11 @@ class Util():
 
         return df
 
+    def drop_duplicates_report(df):
+        df = df.drop_duplicates()
+
+        return df
+
     def dict_uf(df):
     
         dict_states = {'Acre': 'AC',
