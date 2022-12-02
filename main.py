@@ -1,12 +1,16 @@
 from flask import Flask, jsonify
 from services.censoService import censoService
+from environs import Env
 
 app = Flask(__name__)
+env = Env()
+env.read_env()
 
 
 @app.route('/')
 def hello():
-    return jsonify({'message': 'it is a test'})
+    return jsonify({'message': env.str("version")})
+
 
 @app.route('/generate_report', methods=['GET'])
 def generate_report():
