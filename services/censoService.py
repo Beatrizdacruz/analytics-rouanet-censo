@@ -29,8 +29,7 @@ class censoService():
 
             df = Util.surrogate(df)
             
-            df.to_csv('relatorio_censo_rouanet.csv', index=False)
-            
+            df.to_csv('datasets/report/relatorio_censo_rouanet.csv')
 
             print(df)
             print(df.dtypes)
