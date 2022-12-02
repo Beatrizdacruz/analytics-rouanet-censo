@@ -1,23 +1,23 @@
 ### Introdução
 
-    Olá! Esse History é para descrever o desenvolvimento deste pipeline. O objetivo deste desenvolvimento é criar um pipeline de operações que gere um csv no final. O passo a passo do pipeline:
+Olá! Esse History é para descrever o desenvolvimento deste pipeline. O objetivo deste desenvolvimento é criar um pipeline de operações que gere um csv no final. O passo a passo do pipeline:
 
-    - unificar os datasets rouanet.csv e censo_estado.csv atraves das colunas estado_ibge e código, respectivamente;
-    - criar uma Natural Key para esse dado, usando as colunas estado_ibge e valor_em_reais;
-    - remover as linhas duplicadas de acordo com a surrogate key;
-    - remover linhas com valor_em_reais = 0 ou quantidade = 0;
-    - trocar os dados da coluna estado para a sigla da UF correspondente, ex.: Rio de Janeiro vira RJ.
+- unificar os datasets rouanet.csv e censo_estado.csv atraves das colunas estado_ibge e código, respectivamente;
+- criar uma Natural Key para esse dado, usando as colunas estado_ibge e valor_em_reais;
+- remover as linhas duplicadas de acordo com a surrogate key;
+- remover linhas com valor_em_reais = 0 ou quantidade = 0;
+- trocar os dados da coluna estado para a sigla da UF correspondente, ex.: Rio de Janeiro vira RJ.
 
-    Antes de começar a desenvolver o projeto tive dúvida em qual abordagem trazer ao meu código, se seria algo mais "manual" ou se deveria utilizar uma biblioteca para automatizar mais os processos. Optei por usar uma biblioteca para que os processos não fossem longos e confusos com vários laços e condições, assim como para facilitar o entendimento e manutenção se necessário. Portanto, para criação deste pipeline foi utilizado o python 3.11 junto a biblioteca Pandas, levando como inspiração a manipulação de dados em Banco. O código foi desenvolvido com Pandas levando em consideração a facilidade  de possíveis manutenções, alterações na fonte de dados e possibilidade de expansão do pipeline. Para "chamar" o script, foi utilizado o Flask. 
+Antes de começar a desenvolver o projeto tive dúvida em qual abordagem trazer ao meu código, se seria algo mais "manual" ou se deveria utilizar uma biblioteca para automatizar mais os processos. Optei por usar uma biblioteca para que os processos não fossem longos e confusos com vários laços e condições, assim como para facilitar o entendimento e manutenção se necessário. Portanto, para criação deste pipeline foi utilizado o python 3.11 junto a biblioteca Pandas, levando como inspiração a manipulação de dados em Banco. O código foi desenvolvido com Pandas levando em consideração a facilidade  de possíveis manutenções, alterações na fonte de dados e possibilidade de expansão do pipeline. Para "chamar" o script, foi utilizado o Flask. 
 
 ### Ferramentas utilizadas
 
-    Python 3.11 - linguagem de programação mais popular quando se trata de ciência de dados;
-    Flask - Framework para criação de endpoint;
-    Pandas - biblioteca para manipulação dos dados. Como o passo a passo deste pipeline assemelha-se a manipulação de dados em Banco, quis trazer essa biblioteca pela simplicidade, facilidade de possíveis manutenções por alteração na fonte de dados e expansão do mesmo.
-    Dockerfile - build imagem. 
+Python 3.11 - linguagem de programação mais popular quando se trata de ciência de dados;
+Flask - Framework para criação de endpoint;
+Pandas - biblioteca para manipulação dos dados. Como o passo a passo deste pipeline assemelha-se a manipulação de dados em Banco, quis trazer essa biblioteca pela simplicidade, facilidade de possíveis manutenções por alteração na fonte de dados e expansão do mesmo.
+Dockerfile - build imagem. 
 
-    Durante a contrução usei o Conda como ambiente, mas uma virtual env também é uma opção.
+Durante a contrução usei o Conda como ambiente, mas uma virtual env também é uma opção.
 
 ### Estrutura da aplicação
 
